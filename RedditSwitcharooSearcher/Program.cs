@@ -9,13 +9,13 @@ using Reddit.Things;
 
 class Program
 {
-	private const string APP_ID = "-8s9e3GlJbYKMMx3y7_2Dw";
 	static RedditClient Reddit = new RedditClient();
 	
 	static void Main(string[] args)
 	{
-		string SECRET = args[0];
-		string TEST_LINK = args[1];
+		string APP_ID = args[0];
+		string SECRET = args[1];
+		string TEST_LINK = args[2];
 		var REFRESH_TOKEN = AuthorizeUser(APP_ID, SECRET);
 		Reddit = new RedditClient(APP_ID, REFRESH_TOKEN, SECRET);
 		foreach (CommentContainer comment in GetCommentFromPermalink(TEST_LINK))
